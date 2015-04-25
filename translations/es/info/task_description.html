@@ -1,0 +1,40 @@
+<div class="story">
+<p>Genial!&quot;, exclam&oacute; Sof&iacute;a. &quot;Ahora tenemos la contrase&ntilde;a.&quot;</p>
+
+<p>&quot;&iquest;De qu&eacute; exactamente?&quot;, brome&oacute; Nikola.</p>
+
+<p>&ldquo;&ldquo;&iexcl;Tesoros incre&iacute;bles. Vastas riquezas m&aacute;s all&aacute; de la imaginaci&oacute;n! &iexcl;Oro, Plata y Silicio! &iexcl;Fluido hidr&aacute;ulico! &iexcl;Cualquier cosa que tu coraz&oacute;n desee!&rdquo;</p>
+
+<p>&ldquo;&iquest;Y qu&eacute; es lo que vas a hacer con una contrase&ntilde;a?&rdquo; Nikola sonri&oacute;.</p>
+
+<p>&ldquo;Oh, eso...&rdquo;</p>
+
+<p>Stephen habl&oacute;. &quot;Bueno, esta puerta de aqu&iacute; tiene un teclado. Lo &uacute;nico es que los par&eacute;ntesis est&aacute;n en muy mal estado. &iquest;Podr&iacute;amos intentar arreglarlo y luego de ingresar la contrase&ntilde;a? &quot;</p>
+
+<p>&quot;&iexcl;S&Iacute;! &iexcl;Exactamente! &quot;, exclam&oacute; Sof&iacute;a..</p>
+</div>
+
+<p>Se te dar&aacute; una expresi&oacute;n con n&uacute;meros, par&eacute;ntesis y operadores. Para esta tarea s&oacute;lo los par&eacute;ntesis importan. Recuerda que par&eacute;ntesis es una designaci&oacute;n general que usamos para varios tipos: &quot;{}&quot; &quot;()&quot; o &quot;[]&quot; (corchetes, par&eacute;ntesis y llaves). Estos signos se utilizan para determinar el alcance o restringir alguna expresi&oacute;n. Si un par&eacute;ntesis, corchete o llave se abre, entonces deber&aacute; cerrarse en alg&uacute;n punto con un signo de cierre del mismo tipo. El alcance de un par&eacute;ntesis no deber&aacute; ser intersectado por el de otro. En esta tarea deber&aacute;s decidir si se debe corregir o no una expresi&oacute;n, bas&aacute;ndose en los par&eacute;ntesis (o corchetes o llaves) que incluye. No te preocupes por los operadores y los operandos.</p>
+
+<p><strong>Datos de Entrada: </strong>Una expresi&oacute;n con diferentes tipos de par&eacute;ntesis <strong>(corchetes, par&eacute;ntesis y/o llaves)</strong> como una cadena (unicode)..</p>
+
+<p><strong>Salida: </strong>Un veredicto indicando si la expresi&oacute;n es correcta, como un booleano (v<em>erdadero o falso</em>).</p>
+
+<div class="for_info_only">
+<p><strong>Ejemplo:</strong></p>
+
+<pre class="brush: python">
+checkio(&quot;((5+3)*2+1)&quot;) == True
+checkio(&quot;{[(3+1)+2]+}&quot;) == True
+checkio(&quot;(3+{1-1)}&quot;) == False
+checkio(&quot;[1+1]+(2*2)-{3/3}&quot;) == True
+checkio(&quot;(({[(((1)-2)+3)-3]/3}-3)&quot;) == False
+checkio(&quot;2+3&quot;) == True
+</pre>
+</div>
+
+<p class="for_info_only"><strong>&iquest;C&oacute;mo se usa?: </strong> Al escribir c&oacute;digo o expresiones complejas en paquetes matem&aacute;ticos, puedes tener enormes dolores de cabeza cuando se trata de par&eacute;ntesis en exceso o faltantes. Este concepto puede ser &uacute;til para tu propio IDE.</p>
+
+<p><strong>Condiciones: </strong><br />
+S&oacute;lo hay par&eacute;ntesis (&quot;{}&quot; &quot;()&quot; or &quot;[]&quot;), d&iacute;gitos u operadores (&quot;+&quot; &quot;-&quot; &quot;*&quot; &quot;/&quot;).<br />
+0 &lt; len(expression) &lt; 10<sup>3</sup></p>
