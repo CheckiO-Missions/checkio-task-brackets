@@ -1,38 +1,38 @@
 <div class="story">
-    <p>“Génial!” s'écria Sofia. “Maintenance nous avons le mot de passe.”</p>
+    <p>“Génial!” s'écria Sofia. “Maintenant nous avons le mot de passe.”</p>
 
-    <p>“De quoi exactement?” Ironisa Nikola.</p>
+    <p>“Mot de passe pour quoi exactement?”, ironisa Nikola.</p>
 
-    <p>“Trésors secrets, vastes richesses au-delà de l'imagination! Or! Argent! Silicon! Fluide Hydraulique! 
-        tout ce que votre coeur peut désirer!”</p>
+    <p>“Trésors secrets, vastes richesses au-delà de l'imagination! Or! Argent! Silicone! Fluide Hydraulique! 
+        Tout ce que votre coeur peut désirer!”</p>
 
-    <p>“Et vous allez faire quoi avec un mot de passe absolument rien?” Souria Nikola.</p>
+    <p>“Et vous allez faire quoi avec un mot de passe pour absolument rien?”, souria Nikola.</p>
 
     <p>“Oh... Oui...”</p>
 
-    <p>Stephen prit la parole. “Eh bien, cette porte arrière ici dispose d'un clavier. La seule chose est que
+    <p>Stephen prit la parole. “Eh bien, cette porte, là derrière, dispose d'un clavier. Seulement
         les supports semblent bien abimés. Nous pourrions essayer de les réparer et saisir le mot de passe?”</p>
 
-    <p>“Oui! C'est cela!” s'exclama Sofia.</p>
+    <p>“Oui! Faisons-le!”, s'exclama Sofia.</p>
 
 </div>
 
 <p>
     Vous recevez une expression contenant des nombres, parenthèses et opérateurs.
-    Pour cette tâche, seulement les parenthèses importent. Elles viennent sous 3 formes: "{}" "()" or "[]".
-    Elles sont utilisées pour déterminer le scope ou restreindre les expressions. 
+    Pour cette mission, seules les parenthèses importent. Elles se présentent sous 3 formes: "{}" "()" or "[]".
+    Elles sont utilisées pour déterminer la portée ou restreindre des expressions. 
     Si une parenthèse est ouverte, elle doit être fermée avec une parenthèse de fermeture du même type. 
-    Le périmètre d'une parenthèse ne doit pas interférer avec une parenthèse d'un autre type. 
+    La portée d'une parenthèse ne doit pas interférer avec une parenthèse d'un autre type. 
     Dans cette mission,vous devez décider de la cohérence de l'expression suivant les parenthèses. 
     Ne vous occupez pas des opérateurs et opérandes.
 </p>
 
-<p><strong>Entrée: </strong>Une expression avec différents types de parenthèses en chaine de caractères(unicode).</p>
+<p><strong>Entrée: </strong>Une expression (chaîne de caractères - str) avec différents types de parenthèses  (unicode).</p>
 
-<p><strong>Résultat: </strong>une valeur de cohérence de l'expression en valeur booléenne(True or False).</p>
+<p><strong>Résultat: </strong>Une valeur de cohérence de l'expression en valeur booléenne (True ou False).</p>
 
 <div class="for_info_only">
-    <p><strong>Example:</strong></p>
+    <p><strong>Exemple:</strong></p>
 <pre class="brush: python">checkio("((5+3)*2+1)") == True
 checkio("{[(3+1)+2]+}") == True
 checkio("(3+{1-1)}") == False
@@ -46,10 +46,10 @@ checkio("2+3") == True
     <strong>Utilisation: </strong>
     Quand vous écrivez du code ou des expressions complexes dans un package mathématique,
     vous pouvez avoir un mal de tête intense quand il y a des erreurs de parenthèses.
-    Ce concept peut-être utile pour votre IDE personnel.
+    Ce concept peut être utile pour votre IDE personnel.
 </p>
 
-<p><strong>Precondition: </strong><br>
-    Il y a seulement des parenthèses ("{}" "()" or "[]"), nombres ou opérateurs ("+" "-" "*" "/").<br>
+<p><strong>Précondition: </strong><br>
+    Il y a seulement des parenthèses ("{}" "()" or "[]"), des nombres ou des opérateurs ("+" "-" "*" "/").<br>
     0 &lt; len(expression) &lt; 10<sup>3</sup>
 </p>
