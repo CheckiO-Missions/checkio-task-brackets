@@ -1,0 +1,68 @@
+<div class="story">
+    <p>“Great!” Exclaimed Sofia. “Now we have the password.”</p>
+
+    <p>“To what exactly?” Quipped Nikola.</p>
+
+    <p>“Untold treasures, vast riches beyond belief! Gold! Silver! Silicon! Hydraulic Fluid! Anything your heart
+        desires!”</p>
+
+    <p>“And you’re going to do what with a password to absolutely nothing?” Nikola smirked.</p>
+
+    <p>“Oh... Right...”</p>
+
+    <p>Stephen spoke up. “Well, this door back here has a keypad. Only thing is the brackets look pretty busted up. We
+        could try fixing it and then punching in the password?”</p>
+
+    <p>“YES! That!” Sofia exclaimed.</p>
+	
+	(訳注: ストーリーは未翻訳、どなたかお願いします)
+
+</div>
+
+<p>
+    <!-- You are given an expression with numbers, brackets and operators. -->
+	あなたは数字、括弧と演算子を持つ式が与えられています
+    <!-- For this task only the brackets matter. Brackets come in three flavors: "{}" "()" or "[]". -->
+	このタスクでは括弧だけを対象にします。
+	括弧は3種類あります:"{}" "()" または "[]"。
+    <!-- Brackets are used to determine scope or to restrict some expression.  -->
+	括弧は範囲(scope)を決めたり、いくつかの式を制限したりするために使われます。
+    <!-- If a bracket is open, then it must be closed with a closing bracket of the same type.  -->
+	もし括弧が開いているなら、同じタイプの閉括弧で閉じなければいけません。
+    <!-- The scope of a bracket must not intersected by another bracket.  -->
+	括弧の範囲は他の括弧と交わってはいけません。
+    <!-- In this task you should make a decision, whether to correct an expression or not based on the brackets.  -->
+	このタスクであなたは括弧に基づいて式が正しいかどうかを決めなければいけません。
+    <!-- Do not worry about operators and operands. -->
+	演算子とオペランドは気にしなくて構いません。
+	(訳注: 式が文字列として与えられるので、括弧の対応付けが正しいかどうかを判定してください。括弧以外の数字や記号は無視して構いません。)
+</p>
+
+<p><strong>入力: </strong>異なるタイプの括弧をもつ式、文字列(unicode)</p>
+
+<p><strong>出力: </strong>式が正しいかどうか、ブール値(TrueまたはFalse)</p>
+
+<div class="for_info_only">
+    <p><strong>例:</strong></p>
+<pre class="brush: python">checkio("((5+3)*2+1)") == True
+checkio("{[(3+1)+2]+}") == True
+checkio("(3+{1-1)}") == False
+checkio("[1+1]+(2*2)-{3/3}") == True
+checkio("(({[(((1)-2)+3)-3]/3}-3)") == False
+checkio("2+3") == True
+</pre>
+</div>
+
+<p class="for_info_only">
+    <strong><!--How it is used-->どのように使われるか: </strong>
+    <!-- When you write code or complex expressions in a mathematical package,
+    you can get a huge headache when it comes to excess or missing brackets.
+    This concept can be useful for your own IDE. -->
+	数学パッケージでコードや複雑な式を書くとき、多かったり少なかったりする括弧に頭をかかえることでしょう。
+	このコンセプトはあなた自身のIDEに役に立ちます。
+</p>
+
+<p><strong>事前条件: </strong><br>
+    There are only brackets ("{}" "()" or "[]"), digits or operators ("+" "-" "*" "/").<br>
+    0 &lt; len(expression) &lt; 10<sup>3</sup>
+</p>
