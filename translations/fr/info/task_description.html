@@ -33,13 +33,21 @@
 
 <div class="for_info_only">
     <p><strong>Exemple:</strong></p>
-<pre class="brush: python">checkio("((5+3)*2+1)") == True
+<pre class="brush: python">{% if interpreter.slug == "js-node" %}
+brackets("((5+3)*2+1)") == true
+brackets("{[(3+1)+2]+}") == true
+brackets("(3+{1-1)}") == false
+brackets("[1+1]+(2*2)-{3/3}") == true
+brackets("(({[(((1)-2)+3)-3]/3}-3)") == false
+brackets("2+3") == True
+{% else %}
+checkio("((5+3)*2+1)") == True
 checkio("{[(3+1)+2]+}") == True
 checkio("(3+{1-1)}") == False
 checkio("[1+1]+(2*2)-{3/3}") == True
 checkio("(({[(((1)-2)+3)-3]/3}-3)") == False
 checkio("2+3") == True
-</pre>
+{% endif %}</pre>
 </div>
 
 <p class="for_info_only">
