@@ -9,7 +9,7 @@ Each test is dict with
 
 
 TESTS = {
-    "1. Basics": [
+    "Basics": [
         {
             "input": "((5+3)*2+1)",
             "answer": True
@@ -61,7 +61,7 @@ TESTS = {
         }
 
     ],
-    "2. Extra": [
+    "Extra": [
         {
             "input": "[[5+3]*2+1]",
             "answer": True
@@ -105,7 +105,7 @@ TESTS = {
         }
 
     ],
-    "3. Edge": [
+    "Edge": [
         {
             "input": "1",
             "answer": True
