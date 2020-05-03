@@ -6,7 +6,7 @@ function brackets(expr: string): boolean {
 }
 
 console.log('Example:');
-console.log(brackets("((5+3)*2+1))");
+console.log(brackets("(5+3)*2+1)"));
 
 // These "asserts" are used for self-checking
 assert.equal(brackets("((5+3)*2+1)"), true);
