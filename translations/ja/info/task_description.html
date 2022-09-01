@@ -3,27 +3,27 @@
 		<!-- “Great!” Exclaimed Sofia. “Now we have the password.” -->
 		「やった！」ソフィアは叫んだ。 「ついにパスワードが分かったわ。」
 	</p>
-	
+
 	<p>
 		<!-- “To what exactly?” Quipped Nikola. -->
 		「一体何のパスワードなの？」ニコラが突っ込む。
 	</p>
-	
+
 	<p>
 		<!-- “Untold treasures, vast riches beyond belief! Gold! Silver! Silicon! Hydraulic Fluid! Anything your heart desires!” -->
 		「信じられない位の財宝よ！　ゴールド、銀、ケイ素に油圧油！　欲しいものなら何でもあるわ！」
 	</p>
-    
+
 	<p>
 		<!-- “And you’re going to do what with a password to absolutely nothing?” Nikola smirked. -->
 		「それで？　そんなあり得ないパスワードを一体どうしようっていうの？」ニコラはにっこり笑って言った。
 	</p>
-	
+
 	<p>
 		<!-- “Oh... Right...” -->
 		「うーん…そうね…」ステファニーが話し始める。
 	</p>
-	
+
 	<p>
 		<!-- Stephen spoke up. “Well, this door back here has a keypad. Only thing is the brackets look pretty busted up. -->
 		<!-- We could try fixing it and then punching in the password?” -->
@@ -63,21 +63,7 @@
 
 <div class="for_info_only">
     <p><strong>例:</strong></p>
-<pre class="brush: python">{% if interpreter.slug == "js-node" %}
-brackets("((5+3)*2+1)") == true
-brackets("{[(3+1)+2]+}") == true
-brackets("(3+{1-1)}") == false
-brackets("[1+1]+(2*2)-{3/3}") == true
-brackets("(({[(((1)-2)+3)-3]/3}-3)") == false
-brackets("2+3") == True
-{% else %}
-checkio("((5+3)*2+1)") == True
-checkio("{[(3+1)+2]+}") == True
-checkio("(3+{1-1)}") == False
-checkio("[1+1]+(2*2)-{3/3}") == True
-checkio("(({[(((1)-2)+3)-3]/3}-3)") == False
-checkio("2+3") == True
-{% endif %}</pre>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <p class="for_info_only">
