@@ -11,7 +11,7 @@ api.add_listener(
         tests=TESTS,
         # checker=to_list,
         function_name={
-            "python":"checkio",
+            "python": "checkio",
             "js": "brackets"
         },
         cover_code={

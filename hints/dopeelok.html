@@ -62,7 +62,8 @@ for i in expression:
         Nothing works. SOS
     </div>
     <div class="answer">
-        Let's activate our second variable new. Let's put a version of the closed parenthesis found in the line to it.
+        Let's activate our second variable new. Every time we come across an open brace "( [ {", we will add to the
+        variable new the variant of the closed brace ") ] }" accordingly.
         But let's add a condition that will check whether our parentheses are closed.
         <pre class="brush: python">
 expression = "((5+3)*2+1)"
@@ -103,7 +104,9 @@ def checkio(expression: str) -> bool:
     </div>
     <div class="answer">
         Okay, okay! That's the spirit!=)
-        Here is the solution implemented through a while loop and a generator expression.
+        Here is the solution implemented through a while loop and a generator expression. Using the generator, we
+        leave only brackets in the line. And then, with each step, we clean the line from combinations of brackets.
+        If the line has been cleared to zero, we return True, and if an incorrect combination remains, then we return False
         <pre class="brush: python">
 def checkio(expression: str) -> bool:
     s = ''.join(c for c in expression if c in '([{}])')
