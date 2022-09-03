@@ -1,0 +1,150 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        I don't know how to start solving this mission
+    </div>
+    <div class="answer">
+        What if I offer you the following solution: ignore all characters that are not parentheses; remember the open
+        parentheses and check whether they were closed as a result in the correct order; if so - return True, if not - False.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need help to continue the mission
+    </div>
+    <div class="answer">
+        It will be useful for you to read some information about:
+        <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_append.asp'>example</a> ), and
+        <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.pop()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_pop.asp'>example</a> ),
+        (<a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=dict%20values#dict.values'>dict.values()</a> ),
+        (<a href='https://www.w3schools.com/python/ref_dictionary_values.asp'>example</a> ).
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Need help!
+    </div>
+    <div class="answer">
+        Let's start with the preparation for solving the mission. We need two variables. In the first, we will create
+        a dictionary with a variation of parentheses. The second variable will be our result of checking whether the
+        parentheses were closed.
+        <pre class="brush: python">
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I'm stuck. I need a little hint.
+    </div>
+    <div class="answer">
+        So, let's start with the fact that with the help of the for loop, we will go through the line and identify the
+        open parentheses. We will place the check for open parentheses before the if expression.
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            print(i)
+
+# output
+(
+(
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nothing works. SOS
+    </div>
+    <div class="answer">
+        Let's activate our second variable new. Every time we come across an open brace "( [ {", we will add to the
+        variable new the variant of the closed brace ") ] }" accordingly.
+        But let's add a condition that will check whether our parentheses are closed.
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            new.append(brackets[i])
+    elif i in brackets.values() and i != new.pop():
+            pass
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I don't want to give up, help!
+    </div>
+    <div class="answer">
+        You have a few things left. This is to add to the condition that if the parenthesis is in the dictionary values
+        and the parenthesis is not the same as the last element of the list (which was cut from the list during comparison) -
+        we return False. Otherwise, we will return the result of comparing new with an empty string.
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+    brackets = {'(': ')', '[': ']', '{': '}'}
+    new = ['']
+    for i in expression:
+        if i in brackets:
+            new.append(brackets[i])
+        elif i in brackets.values() and i != new.pop():
+            return False
+    return new == ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I want to be the best of the best PROGRAMMERS!!! SHOW ME MORE SOLUTIONS!!1!!!11!
+    </div>
+    <div class="answer">
+        Okay, okay! That's the spirit!=)
+        Here is the solution implemented through a while loop and a generator expression. Using the generator, we
+        leave only brackets in the line. And then, with each step, we clean the line from combinations of brackets.
+        If the line has been cleared to zero, we return True, and if an incorrect combination remains, then we return False
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+    s = ''.join(c for c in expression if c in '([{}])')
+    while s:
+        s0, s = s, s.replace('()', '').replace('[]', '').replace('{}', '')
+        if s == s0:
+            return False
+    return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I want more!
+    </div>
+    <div class="answer">
+        Let's dilute the very laconic solutions with a simple and practical approach to the solution.
+        After all, simplicity and comprehensibility of the code are welcome in Python =)
+        <pre class="brush: python">
+def checkio(expr):
+    for c in '1234567890+-*/':
+        expr = expr.replace(c, '')
+    length = len(expr)
+    while length:
+        if expr.count('()'):
+            expr = expr.replace('()','')
+        if expr.count('{}'):
+            expr = expr.replace('{}','')
+        if expr.count('[]'):
+            expr = expr.replace('[]','')
+        if len(expr) == length:
+            break
+        else:
+            length = len(expr)
+    return len(expr) == 0
+        </pre>
+    </div>
+</div>
+
+
+</body>

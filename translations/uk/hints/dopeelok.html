@@ -1,0 +1,148 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Я не знаю, як розпочати вирішення цієї місії
+    </div>
+    <div class="answer">
+        Що, якщо я запропоную тобі таке рішення: ігноруємо всі символи котрі не являються дужками; запам'ятовуємо відкриті дужки
+        та перевіряємо чи були вони закриті в результаті у вірному порядку; якщо так - повертаємо True, якщо ні - False.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Мені потрібна допомога, щоб продовжити місію
+    </div>
+    <div class="answer">
+        Тобі буде корисно прочитати трохи інформації про:
+        <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_append.asp'>приклад</a> ), та
+        <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.pop()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_pop.asp'>приклад</a> ),
+        (<a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=dict%20values#dict.values'>dict.values()</a> ),
+        (<a href='https://www.w3schools.com/python/ref_dictionary_values.asp'>приклад</a> ).
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Потрібна допомога!
+    </div>
+    <div class="answer">
+        Давай почнемо з підготовки до вирішення місії. Нам потрібно дві змінні. В першій ми створимо словник з варіацією
+        дужок. Друга змінна буде нашим результатом перевірки чи закриті були дужки.
+        <pre class="brush: python">
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я вже не знаю що робити. Мені потрібна маленька підказка.
+    </div>
+    <div class="answer">
+        Отже, давай почнемо з того, що за допогою циклу for ми пройдемося по рядку і визначемо відкриті дужки. Перевірку на
+        відкриті дужки помістимо до виразу if.
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            print(i)
+
+# output
+(
+(
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Нічого не працює. SOS
+    </div>
+    <div class="answer">
+        Запустимо у дію нашу другу змінну new. Кожного разу, коли потрапляємо на відкриту дужку "( [ {", ми будемо додавати
+        до змінної new варіант закритої дужки ") ] }" відповідно. Та додамо умову, яка буде перевіряти чи закриті
+        наші дужки.
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            new.append(brackets[i])
+    elif i in brackets.values() and i != new.pop():
+            pass
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Не хочу здаватись, допоможи!
+    </div>
+    <div class="answer">
+        Тобі залишилось декілька речей. Це додати до умови, що якщо дужка знаходиться в значеннях словника та дужка не така сама
+        як останній елемент списку (який вирізали зі списку при порівнянні) - повертаємо False. В іншому випадку повернемо результат порівняння new з порожнім рядком.
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+    brackets = {'(': ')', '[': ']', '{': '}'}
+    new = ['']
+    for i in expression:
+        if i in brackets:
+            new.append(brackets[i])
+        elif i in brackets.values() and i != new.pop():
+            return False
+    return new == ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я хочу бути кращим з кращих ПРОГРАМІСТІВ!!! ПОКАЖИ МЕНІ БІЛЬШЕ РІШЕНЬ!!1!!!11!
+    </div>
+    <div class="answer">
+        Добре, добре! Оце настрій!=)
+        Ось рішення реалізоване через цикл while та вираз-генератор.
+        За допомогою генератору ми залишаємо в рядку тільки дужки. А далі с кожним кроком очищуємо рядок від комбінацій
+        дужок. Якщо рядок очистився до нуля - повертаємо True, а якщо залишилась не коректна комбінація, то повертаємо False
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+    s = ''.join(c for c in expression if c in '([{}])')
+    while s:
+        s0, s = s, s.replace('()', '').replace('[]', '').replace('{}', '')
+        if s == s0:
+            return False
+    return True
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я хочу більше!
+    </div>
+    <div class="answer">
+        Розбавимо трохи дуже лаконічні рішення простим та практичним підходом до рішення. Адже у Python-і вітається саме
+        простота та зрозумілість коду =)
+        <pre class="brush: python">
+def checkio(expr):
+    for c in '1234567890+-*/':
+        expr = expr.replace(c, '')
+    length = len(expr)
+    while length:
+        if expr.count('()'):
+            expr = expr.replace('()','')
+        if expr.count('{}'):
+            expr = expr.replace('{}','')
+        if expr.count('[]'):
+            expr = expr.replace('[]','')
+        if len(expr) == length:
+            break
+        else:
+            length = len(expr)
+    return len(expr) == 0
+        </pre>
+    </div>
+</div>
+
+
+</body>
