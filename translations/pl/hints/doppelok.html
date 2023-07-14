@@ -1,0 +1,164 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Nie wiem, jak zacząć rozwiązywać tę misję
+    </div>
+    <div class="answer">
+        <p>A co, jeśli zaproponuję Panu następujące rozwiązanie: proszę zignorować wszystkie znaki, które nie są nawiasami; proszę zapamiętać otwarte nawiasy i sprawdzić, czy zostały zamknięte w prawidłowej kolejności; jeśli tak - proszę zwrócić  
+        i proszę sprawdzić, czy zostały one zamknięte w wyniku w prawidłowej kolejności; jeśli tak - proszę zwrócić <b class="code">True</b>, jeśli nie - <b class="code">False</b>.</p>
+        
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Potrzebuję pomocy, aby kontynuować misję
+    </div>
+    <div class="answer">
+        <p>Przyda się Panu przeczytanie kilku informacji na temat:
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_append.asp'>example</a>),
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.pop()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_pop.asp'>example</a>) oraz
+       <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html?highlight=dict%20values#dict.values'>dict.values()</a>,
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_dictionary_values.asp'>example</a>).</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę o pomoc!
+    </div>
+    <div class="answer">
+        <p>Proszę zacząć od przygotowania do rozwiązania zadania. Potrzebujemy dwóch zmiennych. W pierwszej z nich utworzymy
+        słownik z odmianą nawiasów. Druga zmienna będzie naszym wynikiem sprawdzenia, czy
+        nawiasy zostały zamknięte.</p>
+        
+        <pre class="brush: python">
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Utknąłem. Potrzebuję małej podpowiedzi.
+    </div>
+    <div class="answer">
+        <p>Zacznijmy więc od tego, że za pomocą pętli for przejdziemy przez linię i zidentyfikujemy
+        otwarte nawiasy. Sprawdzanie otwartych nawiasów umieścimy przed wyrażeniem if.</p>
+        
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            print(i)
+        </pre>
+        <div class="output">
+            <p>Wynik:</p>
+            <pre>
+(
+(</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nic nie działa. SOS
+    </div>
+    <div class="answer">
+        <p>Proszę aktywować naszą drugą zmienną new. Za każdym razem, gdy napotkamy otwarty nawias klamrowy "( [ {", dodamy do zmiennej new
+        zmiennej new wariant zamkniętego nawiasu klamrowego ") ] }".
+        Dodajmy jednak warunek, który sprawdzi, czy nasze nawiasy są zamknięte.</p>
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            new.append(brackets[i])
+    elif i in brackets.values() and i!= new.pop():
+            pass
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nie chcę się poddawać, proszę o pomoc!
+    </div>
+    <div class="answer">
+        <p>Zostało Panu jeszcze kilka rzeczy do zrobienia. Jest to dodanie do warunku, że jeśli nawias znajduje się w wartościach słownika
+        i nawias nie jest taki sam jak ostatni element listy (który został wycięty z listy podczas porównywania) - zwracamy False
+        zwrócimy False. W przeciwnym razie zwrócimy wynik porównania new z pustym ciągiem znaków.</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    brackets = {'(': ')', '[': ']', '{': '}'}
+    new = ['']
+    for i in expression:
+        if i in brackets:
+            new.append(brackets[i])
+        elif i in brackets.values() and i!= new.pop():
+            return False
+    return new == ['']
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Chcę być najlepszym z najlepszych PROGRAMISTÓW!!! PROSZĘ POKAZAĆ MI WIĘCEJ ROZWIĄZAŃ!!!1!!!11!
+    </div>
+    <div class="answer">
+        <p>Dobra, dobra! To jest duch!=)
+        Oto rozwiązanie zaimplementowane za pomocą pętli while i wyrażenia generatora. Używając generatora
+        pozostawiamy w linii tylko nawiasy. Następnie, w każdym kroku, czyścimy linię z kombinacji nawiasów.
+        Jeśli wiersz został wyczyszczony do zera, zwracamy True, a jeśli pozostała nieprawidłowa kombinacja, zwracamy False</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    s = ''.join(c for c in expression if c in '([{}])')
+    while s:
+        s0, s = s, s.replace('()', '').replace('[]', '').replace('{}', '')
+        if s == s0:
+            return False
+    return True
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Chcę więcej!
+    </div>
+    <div class="answer">
+        <p>Rozcieńczmy bardzo lakoniczne rozwiązania prostym i praktycznym podejściem do rozwiązania.
+        W końcu prostota i zrozumiałość kodu są mile widziane w Pythonie =)</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expr):
+
+    for c in '1234567890+-*/':
+        expr = expr.replace(c, '')
+    length = len(expr)
+    while length:
+        if expr.count('()'):
+            expr = expr.replace('()','')
+        if expr.count('{}'):
+            expr = expr.replace('{}','')
+        if expr.count('[]'):
+            expr = expr.replace('[]','')
+        if len(expr) == length:
+            break
+        else:
+            length = len(expr)
+    return len(expr) == 0
+        </pre>
+        </div>
+    </div>
+</div>
+
+
+</body>
