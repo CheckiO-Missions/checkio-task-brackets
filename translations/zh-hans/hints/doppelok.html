@@ -1,0 +1,164 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这个任务
+    </div>
+    <div class="answer">
+        <p>如果我给您提供以下解决方案呢：忽略所有不是括号的字符；记住打开的括号并检查它们是否以正确的顺序关闭；如果是--返回  ，如果不是--返回  。
+        并检查它们是否以正确的顺序关闭；如果是，返回<b class="code">True</b> ，如果不是，返回<b class="code">False</b> 。</p>
+        
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我需要帮助以继续任务
+    </div>
+    <div class="answer">
+        <p>您可以阅读以下信息：
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_append.asp'>example</a>)、
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.pop()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_pop.asp'>example</a>) 和
+       <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html?highlight=dict%20values#dict.values'>dict.values()</a>,
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_dictionary_values.asp'>example</a>)。</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        需要帮助
+    </div>
+    <div class="answer">
+        <p>让我们从解决任务的准备工作开始。我们需要两个变量。第一个变量，我们将创建
+        字典。第二个变量是我们检查括号是否闭合的结果。
+        括号是否闭合。</p>
+        
+        <pre class="brush: python">
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我卡住了。我需要一点提示。
+    </div>
+    <div class="answer">
+        <p>所以，让我们从一个事实开始，在for循环的帮助下，我们将通过该行并识别出
+        开括号。我们将在if表达式之前检查括号是否打开。</p>
+        
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            print(i)
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+(
+(</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        无效。SOS
+    </div>
+    <div class="answer">
+        <p>让我们激活第二个变量new。每当我们遇到一个开放括号"( [ {"，我们将添加到
+        变量new中加入封闭括号")]}"。
+        但是让我们添加一个条件来检查我们的括号是否是封闭的。</p>
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            new.append(brackets[i])
+    elif i in brackets.values() and i!= new.pop():
+            pass
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我不想放弃，帮帮我！
+    </div>
+    <div class="answer">
+        <p>你还剩下几件事。这是添加到条件中，如果括号在字典值中
+        并且括号与列表中的最后一个元素不相同（在比较过程中被从列表中删除） - 我们将返回 False。
+        我们将返回 "假"。否则，我们将返回new与空字符串的比较结果。</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    brackets = {'(': ')', '[': ']', '{': '}'}
+    new = ['']
+    for i in expression:
+        if i in brackets:
+            new.append(brackets[i])
+        elif i in brackets.values() and i!= new.pop():
+            return False
+    return new == ['']
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我想成为最好的程序员中的最好的!!!告诉我更多的解决方案!!!1!!!11！
+    </div>
+    <div class="answer">
+        <p>好吧，好吧！这就是精神！=)
+        下面是通过一个while循环和一个发生器表达式实现的解决方案。使用生成器，我们
+        行中只留下括号。然后，每一步，我们都会清除行中的括号组合。
+        如果该行被清除为零，我们返回True，如果仍然存在错误的组合，我们返回False。</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    s = ''.join(c for c in expression if c in '([{}])')
+    while s:
+        s0, s = s, s.replace('()', '').replace('[]', '').replace('{}', '')
+        if s == s0:
+            return False
+    return True
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我还想要更多！
+    </div>
+    <div class="answer">
+        <p>让我们用简单实用的方法来稀释非常简洁的解决方案。
+        毕竟，代码的简洁性和可理解性在 Python 中是受欢迎的 =)</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expr):
+
+    for c in '1234567890+-*/':
+        expr = expr.replace(c, '')
+    length = len(expr)
+    while length:
+        if expr.count('()'):
+            expr = expr.replace('()','')
+        if expr.count('{}'):
+            expr = expr.replace('{}','')
+        if expr.count('[]'):
+            expr = expr.replace('[]','')
+        if len(expr) == length:
+            break
+        else:
+            length = len(expr)
+    return len(expr) == 0
+        </pre>
+        </div>
+    </div>
+</div>
+
+
+</body>
