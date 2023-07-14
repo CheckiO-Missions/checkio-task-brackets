@@ -17,7 +17,7 @@
 
 </div>
 
-<p>
+<p style="text-align: justify;">
     You are given an expression with numbers, brackets and operators.
     For this task only the brackets matter. Brackets come in three flavors: "{}" "()" or "[]".
     Brackets are used to determine scope or to restrict some expression.
@@ -27,23 +27,25 @@
     Do not worry about operators and operands.
 </p>
 
-<p><strong>Input: </strong>An expression with different of types brackets as a string (unicode).</p>
+<p><strong>Input:</strong> An expression with different of types brackets as a string <span translate="no">(str{% if is_js %}ing{% endif %})</span>.</p>
 
-<p><strong>Output: </strong>A verdict on the correctness of the expression in boolean (True or False).</p>
+<p><strong>Output:</strong> A verdict on the correctness of the expression as logic value <span translate="no">(bool{% if is_js %}ean{% endif %})</span>.</p>
 
 <div class="for_info_only">
-    <p><strong>Example:</strong></p>
+    <p><strong>Examples:</strong></p>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <p class="for_info_only">
-    <strong>How it is used: </strong>
+    <strong>How it is used:</strong>
     When you write code or complex expressions in a mathematical package,
     you can get a huge headache when it comes to excess or missing brackets.
     This concept can be useful for your own IDE.
 </p>
 
-<p><strong>Precondition: </strong><br>
-    There are only brackets ("{}" "()" or "[]"), digits or operators ("+" "-" "*" "/").<br>
-    0 &lt; len(expression) &lt; 10<sup>3</sup>
+<p><strong>Preconditions:</strong>
+    <ul>
+        <li>There are only brackets ("{}" "()" or "[]"), digits or operators ("+" "-" "*" "/");</li>
+        <li>0 &lt; len(expression) &lt; 10<sup>3</sup>.</li>
+    </ul>
 </p>
