@@ -1,0 +1,51 @@
+<div class="story">
+    <p>"Świetnie!" Wykrzyknęła Sofia. "Teraz mamy hasło."</p>
+
+    <p>"Do czego dokładnie?" Zapytała Nikola.</p>
+
+    <p>"Niewyobrażalnych skarbów, ogromnych bogactw! Złoto! Srebro! Krzem! Płyn hydrauliczny! Wszystko, czego dusza zapragnie!
+        czego tylko dusza zapragnie!"</p>
+
+    <p>"I co zamierza pan zrobić z hasłem do absolutnie niczego?" Nikola uśmiechnął się.</p>
+
+    <p>"Oh... Racja..."</p>
+
+    <p>Odezwał się Stephen. "Te drzwi z tyłu mają klawiaturę. Jedyną rzeczą jest to, że wsporniki wyglądają na dość zniszczone. Możemy
+        mógłby pan spróbować je naprawić, a potem wpisać hasło?"</p>
+
+    <p>"Tak! To!" Wykrzyknęła Sofia.</p>
+
+</div>
+
+<p style="text-align: justify;">
+    Otrzymują Państwo wyrażenie z liczbami, nawiasami i operatorami.
+    W tym zadaniu liczą się tylko nawiasy. Nawiasy występują w trzech odmianach: "{}" "()" lub "[]".
+    Nawiasy służą do określania zakresu lub ograniczania jakiegoś wyrażenia.
+    Jeśli nawias jest otwarty, musi być zamknięty nawiasem zamykającym tego samego typu.
+    Zakres nawiasu nie może przecinać się z innym nawiasem.
+    W tym zadaniu należy podjąć decyzję, czy poprawić wyrażenie, czy nie na podstawie nawiasów.
+    Proszę nie przejmować się operatorami i operandami.
+</p>
+
+<p><strong>Dane wejściowe:</strong> Wyrażenie z nawiasami różnych typów jako ciąg znaków <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+
+<p><strong>Wyjście:</strong> Werdykt o poprawności wyrażenia jako wartość logiczna <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
+
+<div class="for_info_only">
+    <p><strong>Przykłady:</strong></p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
+<p class="for_info_only">
+   <strong>Sposób użycia:</strong>
+    Podczas pisania kodu lub złożonych wyrażeń w pakiecie matematycznym,
+    może pojawić się ogromny ból głowy związany z nadmiarem lub brakiem nawiasów.
+    Ta koncepcja może być przydatna dla Państwa własnego IDE.
+</p>
+
+<p><strong>Warunki wstępne:</strong>
+    <ul>
+        <li>Istnieją tylko nawiasy ("{}" "()" lub "[]"), cyfry lub operatory ("+" "-" "*" "/");</li>
+        <li>0 &lt; len(expression) &lt;<sup>103</sup>.</li>
+    </ul>
+</p>
