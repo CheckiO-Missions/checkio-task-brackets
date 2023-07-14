@@ -1,49 +1,51 @@
 <div class="story">
-    <p>“Génial!” s'écria Sofia. “Maintenant nous avons le mot de passe.”</p>
+    <p>"Génial!" S'exclame Sofia. "Maintenant nous avons le mot de passe."</p>
 
-    <p>“Mot de passe pour quoi exactement?”, ironisa Nikola.</p>
+    <p>"Pour quoi exactement?" Demanda Nikola.</p>
 
-    <p>“Trésors secrets, vastes richesses au-delà de l'imagination! Or! Argent! Silicone! Fluide Hydraulique!
-        Tout ce que votre coeur peut désirer!”</p>
+    <p>"Des trésors inouïs, des richesses inimaginables! De l'or! De l'argent! Du silicium! Fluide hydraulique! Tout ce que votre cœur
+        tout ce que votre cœur désire!"</p>
 
-    <p>“Et vous allez faire quoi avec un mot de passe pour absolument rien?”, souria Nikola.</p>
+    <p>"Et vous allez faire quoi avec un mot de passe qui ne correspond à rien?" Nikola sourit.</p>
 
-    <p>“Oh... Oui...”</p>
+    <p>"Oh... C'est vrai..."</p>
 
-    <p>Stephen prit la parole. “Eh bien, cette porte, là derrière, dispose d'un clavier. Seulement
-        les supports semblent bien abimés. Nous pourrions essayer de les réparer et saisir le mot de passe?”</p>
+    <p>Stephen prend la parole. "Cette porte est équipée d'un clavier. Le seul problème, c'est que les supports ont l'air assez abîmés. On pourrait essayer de le réparer et de le perforer
+        on pourrait essayer de les réparer et de taper le mot de passe?"</p>
 
-    <p>“Oui! Faisons-le!”, s'exclama Sofia.</p>
+    <p>"OUI! Ça! S'exclame Sofia.</p>
 
 </div>
 
-<p>
-    Vous recevez une expression contenant des nombres, parenthèses et opérateurs.
-    Pour cette mission, seules les parenthèses importent. Elles se présentent sous 3 formes: "{}" "()" or "[]".
-    Elles sont utilisées pour déterminer la portée ou restreindre des expressions.
-    Si une parenthèse est ouverte, elle doit être fermée avec une parenthèse de fermeture du même type.
-    La portée d'une parenthèse ne doit pas interférer avec une parenthèse d'un autre type.
-    Dans cette mission,vous devez décider de la cohérence de l'expression suivant les parenthèses.
-    Ne vous occupez pas des opérateurs et opérandes.
+<p style="text-align: justify;">
+    On vous donne une expression avec des nombres, des parenthèses et des opérateurs.
+    Pour cette tâche, seules les parenthèses comptent. Il existe trois types de parenthèses: "{}", "()" ou "[]" "()" ou "[]".
+    Les parenthèses sont utilisées pour déterminer la portée d'une expression ou pour la restreindre.
+    Si une parenthèse est ouverte, elle doit être fermée par une parenthèse fermante du même type.
+    La portée d'une parenthèse ne doit pas être coupée par une autre parenthèse.
+    Dans cette tâche, vous devez prendre la décision de corriger ou non une expression en vous basant sur les crochets.
+    Ne vous préoccupez pas des opérateurs et des opérandes.
 </p>
 
-<p><strong>Entrée: </strong>Une expression (chaîne de caractères - str) avec différents types de parenthèses  (unicode).</p>
+<p><strong>Entrée:</strong> Une expression avec différents types de crochets sous la forme d'une chaîne de caractères <span>(str{% if is_js %}ing{% endif %})</span>.</p>
 
-<p><strong>Résultat: </strong>Une valeur de cohérence de l'expression en valeur booléenne (True ou False).</p>
+<p><strong>Sortie: un verdict sur l'exactitude de l'expression en tant que valeur logique:</strong> Un verdict sur l'exactitude de l'expression sous forme de valeur logique <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
 
 <div class="for_info_only">
-    <p><strong>Exemple:</strong></p>
+    <p><strong>Exemples:</strong></p>
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <p class="for_info_only">
-    <strong>Utilisation: </strong>
-    Quand vous écrivez du code ou des expressions complexes dans un package mathématique,
-    vous pouvez avoir un mal de tête intense quand il y a des erreurs de parenthèses.
-    Ce concept peut être utile pour votre IDE personnel.
+   <strong>Comment l'utiliser:</strong>
+    Lorsque vous écrivez du code ou des expressions complexes dans un progiciel mathématique,
+    vous pouvez avoir un énorme mal de tête lorsqu'il s'agit d'un excès ou d'un manque de parenthèses.
+    Ce concept peut être utile pour votre propre IDE.
 </p>
 
-<p><strong>Précondition: </strong><br>
-    Il y a seulement des parenthèses ("{}" "()" or "[]"), des nombres ou des opérateurs ("+" "-" "*" "/").<br>
-    0 &lt; len(expression) &lt; 10<sup>3</sup>
+<p><strong>Conditions préalables:</strong>
+    <ul>
+        <li>Il n'y a que des parenthèses ("{}" "()" ou "[]"), des chiffres ou des opérateurs ("+" "-" "*" "/");</li>
+        <li>0 &lt; len(expression) &lt;<sup>103</sup>.</li>
+    </ul>
 </p>
