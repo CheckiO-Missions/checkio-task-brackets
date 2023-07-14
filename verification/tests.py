@@ -58,8 +58,7 @@ TESTS = {
         {
             "input": ["2+3"],
             "answer": True
-        }
-
+        },
     ],
     "Extra": [
         {
@@ -102,8 +101,7 @@ TESTS = {
         {
             "input": ["(((1+(1+1))))]"],
             "answer": False
-        }
-
+        },
     ],
     "Edge": [
         {
