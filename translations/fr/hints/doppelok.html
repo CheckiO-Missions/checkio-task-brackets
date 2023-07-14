@@ -1,0 +1,164 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Je ne sais pas comment commencer à résoudre cette mission
+    </div>
+    <div class="answer">
+        <p>Et si je vous proposais la solution suivante: ignorez tous les caractères qui ne sont pas des parenthèses; souvenez-vous des
+        et vérifiez si elles ont été fermées en tant que résultat dans le bon ordre; si c'est le cas, renvoyez <b class="code">True</b>, sinon <b class="code">False</b>.</p>
+        
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        J'ai besoin d'aide pour poursuivre la mission
+    </div>
+    <div class="answer">
+        <p>Il vous sera utile de lire des informations sur:
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_append.asp'>example</a>),
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.pop()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_pop.asp'>example</a>) et
+       <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html?highlight=dict%20values#dict.values'>dict.values()</a>,
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_dictionary_values.asp'>example</a>).</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Besoin d'aide!
+    </div>
+    <div class="answer">
+        <p>Commençons par préparer la résolution de la mission. Nous avons besoin de deux variables. Dans la première, nous allons créer
+        un dictionnaire avec une variation de parenthèses. La seconde variable sera le résultat de la vérification de la fermeture des
+        parenthèses ont été fermées.</p>
+        
+        <pre class="brush: python">
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Je suis bloqué. J'ai besoin d'un petit conseil.
+    </div>
+    <div class="answer">
+        <p>Commençons donc par le fait qu'à l'aide de la boucle for, nous allons parcourir la ligne et identifier les
+        parenthèses ouvertes. Nous placerons la vérification des parenthèses ouvertes avant l'expression if.</p>
+        
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            print(i)
+        </pre>
+        <div class="output">
+            <p>Résultat:</p>
+            <pre>
+(
+(</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Rien ne fonctionne. SOS
+    </div>
+    <div class="answer">
+        <p>Activons notre deuxième variable new. Chaque fois que nous rencontrerons une accolade ouverte "( [ {", nous ajouterons à la variable new la variante de l'accolade fermée ")"
+        variable new la variante de l'accolade fermée ") ] }" en conséquence.
+        Mais ajoutons une condition qui vérifiera si nos parenthèses sont fermées.</p>
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            new.append(brackets[i])
+    elif i in brackets.values() and i!= new.pop():
+            pass
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Je ne veux pas abandonner, aidez-moi!
+    </div>
+    <div class="answer">
+        <p>Il vous reste encore quelques petites choses à faire. Il s'agit d'ajouter à la condition que si la parenthèse est dans les valeurs du dictionnaire
+        et que la parenthèse n'est pas la même que le dernier élément de la liste (qui a été coupé de la liste lors de la comparaison) -
+        nous retournons Faux. Sinon, nous renvoyons le résultat de la comparaison de new avec une chaîne vide.</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    brackets = {'(': ')', '[': ']', '{': '}'}
+    new = ['']
+    for i in expression:
+        if i in brackets:
+            new.append(brackets[i])
+        elif i in brackets.values() and i!= new.pop():
+            return False
+    return new == ['']
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Je veux être le meilleur des meilleurs PROGRAMMEURS!!! MONTREZ-MOI PLUS DE SOLUTIONS!!1!!!11!
+    </div>
+    <div class="answer">
+        <p>D'accord, d'accord! C'est l'esprit!=)
+        Voici la solution mise en œuvre à l'aide d'une boucle while et d'une expression de générateur. En utilisant le générateur, nous
+        ne laissons que les parenthèses dans la ligne. Ensuite, à chaque étape, nous nettoyons la ligne des combinaisons de parenthèses.
+        Si la ligne a été nettoyée à zéro, nous renvoyons True, et s'il reste une combinaison incorrecte, nous renvoyons False</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    s = ''.join(c for c in expression if c in '([{}])')
+    while s:
+        s0, s = s, s.replace('()', '').replace('[]', '').replace('{}', '')
+        if s == s0:
+            return False
+    return True
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        J'en veux encore!
+    </div>
+    <div class="answer">
+        <p>Diluons les solutions très laconiques par une approche simple et pratique de la solution.
+        Après tout, la simplicité et la compréhensibilité du code sont les bienvenues en Python =)</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expr):
+
+    for c in '1234567890+-*/':
+        expr = expr.replace(c, '')
+    length = len(expr)
+    while length:
+        if expr.count('()'):
+            expr = expr.replace('()','')
+        if expr.count('{}'):
+            expr = expr.replace('{}','')
+        if expr.count('[]'):
+            expr = expr.replace('[]','')
+        if len(expr) == length:
+            break
+        else:
+            length = len(expr)
+    return len(expr) == 0
+        </pre>
+        </div>
+    </div>
+</div>
+
+
+</body>
