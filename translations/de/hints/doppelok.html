@@ -1,0 +1,164 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Ich weiß nicht, wie ich mit der Lösung dieser Mission beginnen soll
+    </div>
+    <div class="answer">
+        <p>Wie wäre es, wenn ich Ihnen folgende Lösung vorschlage: ignorieren Sie alle Zeichen, die keine Klammern sind; merken Sie sich die offenen
+        klammern und prüfen Sie, ob sie als Ergebnis in der richtigen Reihenfolge geschlossen wurden; wenn ja - geben Sie <b class="code">True</b> zurück, wenn nicht - <b class="code">False</b>.</p>
+        
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche Hilfe, um die Mission fortzusetzen
+    </div>
+    <div class="answer">
+        <p>Es wird für Sie nützlich sein, einige Informationen zu lesen:
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_append.asp'>example</a>),
+       <a target="_blank" href='https://docs.python.org/3/tutorial/datastructures.html'>list.pop()</a>
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_list_pop.asp'>example</a>) und
+       <a target="_blank" href='https://docs.python.org/3.10/library/stdtypes.html?highlight=dict%20values#dict.values'>dict.values()</a>,
+        (<a target="_blank" href='https://www.w3schools.com/python/ref_dictionary_values.asp'>example</a>).</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Sie brauchen Hilfe!
+    </div>
+    <div class="answer">
+        <p>Beginnen wir mit den Vorbereitungen zur Lösung der Aufgabe. Wir brauchen zwei Variablen. In der ersten werden wir ein
+        ein Wörterbuch mit einer Variation von Klammern. Die zweite Variable wird unser Ergebnis der Überprüfung sein, ob die
+        klammern geschlossen wurden.</p>
+        
+        <pre class="brush: python">
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich komme nicht weiter. Ich brauche einen kleinen Hinweis.
+    </div>
+    <div class="answer">
+        <p>Beginnen wir also damit, dass wir mit Hilfe der for-Schleife durch die Zeile gehen und die
+        offenen Klammern. Wir werden die Prüfung auf offene Klammern vor dem if-Ausdruck platzieren.</p>
+        
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            print(i)
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+(
+(</pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nichts funktioniert. SOS
+    </div>
+    <div class="answer">
+        <p>Lassen Sie uns unsere zweite Variable new aktivieren. Jedes Mal, wenn wir auf eine offene Klammer "( [ {" stoßen, fügen wir der
+        variable new die Variante der geschlossenen Klammer ") ] }" entsprechend.
+        Fügen wir jedoch eine Bedingung hinzu, die überprüft, ob unsere Klammern geschlossen sind.</p>
+        <pre class="brush: python">
+expression = "((5+3)*2+1)"
+brackets = {'(': ')', '[': ']', '{': '}'}
+new = ['']
+for i in expression:
+    if i in brackets:
+            new.append(brackets[i])
+    elif i in brackets.values() and i!= new.pop():
+            pass
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich will nicht aufgeben, Hilfe!
+    </div>
+    <div class="answer">
+        <p>Sie haben noch ein paar Dinge übrig. Damit fügen Sie der Bedingung hinzu, dass, wenn die Klammer in den Werten des Wörterbuchs steht
+        und die Klammer nicht mit dem letzten Element der Liste übereinstimmt (das beim Vergleich aus der Liste herausgeschnitten wurde) -
+        wir False zurückgeben. Andernfalls geben wir das Ergebnis des Vergleichs von new mit einer leeren Zeichenkette zurück.</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    brackets = {'(': ')', '[': ']', '{': '}'}
+    new = ['']
+    for i in expression:
+        if i in brackets:
+            new.append(brackets[i])
+        elif i in brackets.values() and i!= new.pop():
+            return False
+    return new == ['']
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich möchte der beste der besten PROGRAMMIERER werden!!! ZEIGEN SIE MIR MEHR LÖSUNGEN!!!1!!!11!
+    </div>
+    <div class="answer">
+        <p>Okay, okay! Das ist die richtige Einstellung!=)
+        Hier ist die Lösung, die durch eine while-Schleife und einen Generator-Ausdruck implementiert wurde. Mit Hilfe des Generators lassen wir
+        lassen wir nur Klammern in der Zeile stehen. Und dann, bei jedem Schritt, bereinigen wir die Zeile von Kombinationen von Klammern.
+        Wenn die Zeile auf Null bereinigt wurde, geben wir True zurück, und wenn eine falsche Kombination übrig bleibt, geben wir False zurück</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expression: str) -> bool:
+
+    s = ''.join(c for c in expression if c in '([{}])')
+    while s:
+        s0, s = s, s.replace('()', '').replace('[]', '').replace('{}', '')
+        if s == s0:
+            return False
+    return True
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich will mehr!
+    </div>
+    <div class="answer">
+        <p>Lassen Sie uns die sehr lakonischen Lösungen mit einem einfachen und praktischen Lösungsansatz auflockern.
+        Schließlich sind Einfachheit und Verständlichkeit des Codes in Python willkommen =)</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def checkio(expr):
+
+    for c in '1234567890+-*/':
+        expr = expr.replace(c, '')
+    length = len(expr)
+    while length:
+        if expr.count('()'):
+            expr = expr.replace('()','')
+        if expr.count('{}'):
+            expr = expr.replace('{}','')
+        if expr.count('[]'):
+            expr = expr.replace('[]','')
+        if len(expr) == length:
+            break
+        else:
+            length = len(expr)
+    return len(expr) == 0
+        </pre>
+        </div>
+    </div>
+</div>
+
+
+</body>
