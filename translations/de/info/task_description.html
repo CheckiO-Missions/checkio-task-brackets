@@ -1,0 +1,51 @@
+<div class="story">
+    <p>"Großartig!" Rief Sofia aus. "Jetzt haben wir das Passwort."</p>
+
+    <p>"Für was genau?" Fragte Nikola.</p>
+
+    <p>"Ungeheure Schätze, unvorstellbare Reichtümer! Gold! Silber! Silizium! Hydraulikflüssigkeit! Alles, was Ihr Herz
+        begehrt!"</p>
+
+    <p>"Und was wollen Sie mit einem Passwort machen, das absolut nichts besagt?" Nikola grinste.</p>
+
+    <p>"Oh... Richtig..."</p>
+
+    <p>Stephen meldete sich zu Wort. "Nun, diese Tür hier hinten hat ein Tastenfeld. Nur sehen die Halterungen ziemlich kaputt aus. Wir
+        wir könnten versuchen, sie zu reparieren und dann das Passwort einzugeben?"</p>
+
+    <p>"Jawohl! Das!" Rief Sofia aus.</p>
+
+</div>
+
+<p style="text-align: justify;">
+    Sie erhalten einen Ausdruck mit Zahlen, Klammern und Operatoren.
+    Für diese Aufgabe sind nur die Klammern wichtig. Klammern gibt es in drei Varianten: "{}" "()" oder "[]".
+    Klammern werden verwendet, um den Geltungsbereich zu bestimmen oder einen Ausdruck einzuschränken.
+    Wenn eine Klammer offen ist, muss sie mit einer schließenden Klammer desselben Typs geschlossen werden.
+    Der Geltungsbereich einer Klammer darf nicht von einer anderen Klammer überschnitten werden.
+    In dieser Aufgabe sollten Sie anhand der Klammern entscheiden, ob Sie einen Ausdruck korrigieren wollen oder nicht.
+    Machen Sie sich keine Gedanken über Operatoren und Operanden.
+</p>
+
+<p><strong>Eingabe:</strong> Ein Ausdruck mit verschiedenen Arten von Klammern als String <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+
+<p><strong>Ausgabe:</strong> Ein Urteil über die Korrektheit des Ausdrucks als logischer Wert <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
+
+<div class="for_info_only">
+    <p><strong>Beispiele:</strong></p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
+<p class="for_info_only">
+   <strong>Wie es verwendet wird:</strong>
+    Wenn Sie Code oder komplexe Ausdrücke in einem mathematischen Paket schreiben,
+    können Ihnen überflüssige oder fehlende Klammern große Kopfschmerzen bereiten.
+    Dieses Konzept kann für Ihre eigene IDE nützlich sein.
+</p>
+
+<p><strong>Vorbedingungen:</strong>
+    <ul>
+        <li>Es sind nur Klammern ("{}" "()" oder "[]"), Ziffern oder Operatoren ("+" "-" "*" "/");</li>
+        <li>0 &lt; len(Ausdruck) &lt;<sup>103</sup>.</li>
+    </ul>
+</p>
